@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* https://fonts.google.com/noto/specimen/Noto+Sans+Lao */
+@font-face {
+    font-family: "NotoSanLight";
+    src: local("NotoSanLight"),
+     url("../src/assets/font/NotoSansLao-Medium.ttf") format("truetype");
+}
+
+@layer components {
+    .selected {
+        color: #fff;
+        background-color: #3b82f6 !important;
+    }
+}
+
+* {
+    font-family: "NotoSanLight", sans-serif !important;
+}
+
+.onlineStatus:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    content: ".";
+    font-size: 1px;
+    color: #3b82f6 !important;
+    border-radius: 50%;
+    background: #3b82f6 !important;
+    width: 10px;
+    height: 10px;
+}
+
+.offlineStatus:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    content: ".";
+    font-size: 1px;
+    color: #ef4444 !important;
+    border-radius: 50%;
+    background: #ef4444 !important;
+    width: 10px;
+    height: 10px;
+}
+
+.MuiDataGrid-root {
+    border: none !important;
+}
+
+.add_symbols > p:nth-child(1):after {
+    content: " ( pH )";
+    font-size: 12px;
+}
+
+.add_symbols > p:nth-child(2):after {
+    content: " ( DO )";
+    font-size: 12px;
+}
+
+.add_symbols > p:nth-child(3):after {
+    content: " ( EC )";
+    font-size: 12px;
+}
+
+/* Add unit for EC DO */
+@media only screen and (min-width: 640px) {
+    .add_unit:nth-child(2) p:after {
+        content: " ( mg/L )";
+        font-size: 10px;
+    }
+    
+    .add_unit:nth-child(3) p:after {
+        content: " ( μS/c m )";
+        font-size: 10px;
+    }
+}
